@@ -95,6 +95,5 @@ void couplet(string author, string title, string raw)
 
 int main()
 {
-
 	return 0;
 }
