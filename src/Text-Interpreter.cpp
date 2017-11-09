@@ -88,7 +88,7 @@ void couplet(string author, string title, string raw)
 	ofstream outfile(title + "Formatted.txt");
 	outfile << title + "\n";
 	outfile << author + "\n";
-	outfile << "Eligiac Couplet" + "\n";
+	outfile << "ElegiacCouplet" << "\n";
 	outfile << allLines;
 	outfile.close();
 }
