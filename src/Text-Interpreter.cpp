@@ -14,12 +14,27 @@ string trim(string s)
 {
 	string trimmed = s;
 
-	while (trimmed.substr(0, 1) == " ")
+	while (trimmed.substr(0, 1) == " " || trimmed.substr(0, 1) == "1"
+			|| trimmed.substr(0, 1) == "2" || trimmed.substr(0, 1) == "3"
+			|| trimmed.substr(0, 1) == "4" || trimmed.substr(0, 1) == "5"
+			|| trimmed.substr(0, 1) == "6" || trimmed.substr(0, 1) == "7"
+			|| trimmed.substr(0, 1) == "8" || trimmed.substr(0, 1) == "9"
+			|| trimmed.substr(0, 1) == "0")
 	{
 		trimmed = trimmed.substr(1, trimmed.size() - 1);
 	}
 
-	while (trimmed.substr(trimmed.size() - 1, 1) == " ")
+	while (trimmed.substr(trimmed.size() - 1, 1) == " "
+			|| trimmed.substr(trimmed.size() - 1, 1) == "1"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "2"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "3"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "4"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "5"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "6"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "7"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "8"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "9"
+			|| trimmed.substr(trimmed.size() - 1, 1) == "0")
 	{
 		trimmed = trimmed.substr(0, trimmed.size() - 1);
 	}
@@ -27,7 +42,7 @@ string trim(string s)
 	return trimmed;
 }
 
-int main()
+void couplet(string author, string title, string raw)
 {
 	ifstream infile;
 	string line;
@@ -35,13 +50,12 @@ int main()
 	int count = 1;
 	string storage;
 
-	infile.open("heroides1.txt", ios::out);
+	infile.open(title + ".txt", ios::out);
 
 	if (infile.is_open())
 	{
 		while (getline(infile, line))
 		{
-//			cout << line << '\n';
 			switch (count)
 			{
 				case 1:
@@ -71,9 +85,16 @@ int main()
 	}
 	cout << allLines;
 
-	ofstream outfile("Heroides1Formatted.txt");
+	ofstream outfile(title + "Formatted.txt");
+	outfile << title + "\n";
+	outfile << author + "\n";
+	outfile << "Eligiac Couplet" + "\n";
 	outfile << allLines;
 	outfile.close();
+}
+
+int main()
+{
 
 	return 0;
 }
