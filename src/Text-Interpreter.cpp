@@ -42,7 +42,7 @@ string trim(string s)
 	return trimmed;
 }
 
-void couplet(string author, string title, string raw)
+void couplet(string author, string title)
 {
 	ifstream infile;
 	string line;
@@ -95,5 +95,6 @@ void couplet(string author, string title, string raw)
 
 int main()
 {
+	couplet("Ovid", "Heroides1");
 	return 0;
 }
