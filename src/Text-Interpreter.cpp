@@ -48,9 +48,10 @@ void couplet(string author, string title)
 	string line;
 	string allLines;
 	int count = 1;
+	int numCouplets = 0;
 	string storage;
 
-	infile.open(title + ".txt", ios::out);
+	infile.open("unf" + title + ".txt", ios::out);
 
 	if (infile.is_open())
 	{
@@ -78,6 +79,7 @@ void couplet(string author, string title)
 					line = trim(line);
 					allLines += (storage + "\n");
 					allLines += ("\t" + line + "\n" + "\n");
+					numCouplets++;
 					break;
 			}
 		}
@@ -85,10 +87,11 @@ void couplet(string author, string title)
 	}
 	cout << allLines;
 
-	ofstream outfile(title + "Formatted.txt");
+	ofstream outfile(title + ".txt");
 	outfile << title + "\n";
 	outfile << author + "\n";
 	outfile << "ElegiacCouplet" << "\n";
+	outfile << numCouplets << "\n" << "\n";
 	outfile << allLines;
 	outfile.close();
 }
