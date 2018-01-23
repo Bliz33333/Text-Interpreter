@@ -96,8 +96,51 @@ void couplet(string author, string title)
 	outfile.close();
 }
 
+void twoLiners(string author, string title, string meter)
+{
+	ifstream infile;
+	string line;
+	string allLines;
+	bool second = false;
+	int numUnits = 0;
+	string storage;
+
+	infile.open("unf" + title + ".txt", ios::out);
+
+	if (infile.is_open())
+	{
+		while (getline(infile, line))
+		{
+			switch (second)
+			{
+				case false:
+					second = !second;
+					line = trim(line);
+					allLines += (line + "\n");
+					break;
+				case true:
+					second = !second;
+					line = trim(line);
+					allLines += (line + "\n" + "\n");
+					numUnits++;
+					break;
+			}
+		}
+		infile.close();
+	}
+	cout << allLines;
+
+	ofstream outfile(title + ".txt");
+	outfile << title + "\n";
+	outfile << author + "\n";
+	outfile << meter << "\n";
+	outfile << numUnits << "\n" << "\n";
+	outfile << allLines;
+	outfile.close();
+}
+
 int main()
 {
-	couplet("Propertius", "Elegies3.23");
+	twoLiners("Catullus", "Carmen45", "Hendecasyllabic");
 	return 0;
 }
