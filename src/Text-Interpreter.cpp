@@ -19,7 +19,7 @@ string trim(string s)
 			|| trimmed.substr(0, 1) == "4" || trimmed.substr(0, 1) == "5"
 			|| trimmed.substr(0, 1) == "6" || trimmed.substr(0, 1) == "7"
 			|| trimmed.substr(0, 1) == "8" || trimmed.substr(0, 1) == "9"
-			|| trimmed.substr(0, 1) == "0")
+			|| trimmed.substr(0, 1) == "0" || trimmed.substr(0, 1) == "\t")
 	{
 		trimmed = trimmed.substr(1, trimmed.size() - 1);
 	}
@@ -72,7 +72,7 @@ void couplet(string author, string title)
 				case 3:
 					count++;
 					line = trim(line);
-					allLines += (line + "\n");
+					allLines += ("\t" + line + "\n");
 					break;
 				case 4:
 					count = 1;
@@ -98,6 +98,6 @@ void couplet(string author, string title)
 
 int main()
 {
-	couplet("Ovid", "Heroides1");
+	couplet("Propertius", "Elegies3.23");
 	return 0;
 }
